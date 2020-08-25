@@ -31,16 +31,15 @@ def calculate_profit(stock_prices, trades):
     rtype: int
     """
     profit = 0
-    stocks_held = []
+    stocks_held = 0
     for trade in trades:
         purchase_stock = trade[1] > 0
-        for stock in range(abs(trade[1])):
-            if purchase_stock:
-                stocks_held.append(stock)
-                profit -= 1 * stock_prices[trade[0]]
-            else: 
-                stocks_held.pop()
-                profit += 1 * stock_prices[trade[0]]
+        if purchase_stock:
+            stocks_held += trade[1]
+            profit -= trade[1] * stock_prices[trade[0]]
+        else:
+            stocks_held += trade[1]
+            profit -= trade[1] * stock_prices[trade[0]]
     return profit
 
 stock_prices = [1, 2, 3, 4]
