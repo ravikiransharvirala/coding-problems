@@ -12,6 +12,10 @@ while n != 0:
 
 [1,5, 10, 100]
 
+10 -> 3
+5 -> 1
+
+
 38
 
 while target != 0
@@ -27,7 +31,7 @@ count =
 def solution(denom, target):
     count = 0
     idx = -1
-    while target != 0 and idx >= -len(denom):
+    while target != 0 and idx != -len(denom):
         if target - denom[idx] > 0:
             target =  target - denom[idx]
             count += 1
